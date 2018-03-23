@@ -67,7 +67,9 @@
         android:layout_alignStart="@+id/etName"
         android:layout_marginTop="47dp"
         android:text="@string/sign_up"
-        android:textSize="30sp" />
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="35sp" />
 
     <EditText
         android:id="@+id/etPassword"
