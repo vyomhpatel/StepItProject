@@ -118,6 +118,9 @@
         android:background="#f53734"
         android:onClick="cancelClick"
         android:text="Cancel"
+        android:paddingEnd="7dp"
+        android:paddingStart="7dp"
+        android:drawableLeft="@drawable/cancel"
         android:textColor="#FFFFFF" />
 
 </RelativeLayout>
