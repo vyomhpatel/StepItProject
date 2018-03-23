@@ -5,15 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
 
 
     private static final String TAG ="Log" ;
-
+    String spnItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +27,22 @@ public class SignUp extends AppCompatActivity {
         Log.e(TAG, "onCreate: ");
         EditText name = findViewById(R.id.etName);
         String nameS = name.getText().toString();
+        name.setOnFocusChangeListener(this);
         EditText email = findViewById(R.id.etEmail);
         String emailS = email.getText().toString();
         Button signup = findViewById(R.id.btnSignUp);
 
         EditText pass = findViewById(R.id.etPassword);
+
+        Spinner spinner = findViewById(R.id.spinCountry);
+        spinner.setOnItemSelectedListener(this);
+         spnItem = spinner.getSelectedItem().toString();
+
+        CheckBox cbMale = findViewById(R.id.maleC);
+        CheckBox cbFemale = findViewById(R.id.femaleC);
+
+        cbFemale.setOnCheckedChangeListener(this);
+        cbMale.setOnCheckedChangeListener(this);
     }
 
 
@@ -49,6 +65,36 @@ public class SignUp extends AppCompatActivity {
             send.putExtra("key_phone", phoneS);
 
             startActivity(send);
+
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean isFocused) {
+        if(isFocused){
+            Toast.makeText(this,"Name is in focus",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this,"Name is not in Focus",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Spinner spinner = findViewById(R.id.spinCountry);
+        spnItem = spinner.getSelectedItem().toString();
+        Toast.makeText(this,"selected item is "+spnItem,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        Toast.makeText(this,"Nothing has been selected",Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+        Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -5,4 +5,9 @@
     <string name="enter_phone">Enter Phone</string>
     <string name="sign_up">Sign Up</string>
     <string name="enter_password">Enter Password</string>
+    <string-array name="array">
+        <item name="india">India</item>
+        <item name="usa">United states</item>
+        <item name="uk">United Kingdom</item>
+    </string-array>
 </resources>
