@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -19,6 +20,8 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
 
     private static final String TAG ="Log" ;
     String spnItem;
+
+    String[] arrays = {"India","United States","United Kingdom","China"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,10 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
 
         Spinner spinner = findViewById(R.id.spinCountry);
         spinner.setOnItemSelectedListener(this);
-         spnItem = spinner.getSelectedItem().toString();
+
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,arrays); //adapter
+        spinner.setAdapter(arrayAdapter); //plug
 
         CheckBox cbMale = findViewById(R.id.maleC);
         CheckBox cbFemale = findViewById(R.id.femaleC);
