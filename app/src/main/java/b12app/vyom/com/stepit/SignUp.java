@@ -31,21 +31,24 @@ public class SignUp extends AppCompatActivity {
 
 
     public void sendHome(View view) {
-
-        Log.e(TAG, "sendHome: ");
-        Intent send = new Intent(this,Home.class);
         EditText name = findViewById(R.id.etName);
         String nameS = name.getText().toString();
+
         EditText email = findViewById(R.id.etEmail);
         String emailS = email.getText().toString();
 
         EditText phone = findViewById(R.id.etPhone);
         String phoneS = phone.getText().toString();
 
-        send.putExtra("key_name",nameS);
-        send.putExtra("key_email",emailS);
-        send.putExtra("key_phone",phoneS);
+            Log.e(TAG, "sendHome: ");
+            Intent send = new Intent(this, Home.class);
 
-        startActivity(send);
+
+            send.putExtra("key_name", nameS);
+            send.putExtra("key_email", emailS);
+            send.putExtra("key_phone", phoneS);
+
+            startActivity(send);
+
     }
 }

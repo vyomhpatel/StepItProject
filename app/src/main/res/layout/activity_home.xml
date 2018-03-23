@@ -7,6 +7,7 @@
     android:background="@drawable/grad_bg_signup"
     tools:context="b12app.vyom.com.stepit.Home">
 
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -15,7 +16,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="55dp"
         android:textSize="30sp"
-
         android:layout_marginTop="40dp"
         android:text="Home" />
 
@@ -48,5 +48,4 @@
         android:textSize="20sp"
         android:layout_marginTop="18dp"
         android:text="" />
-
 </RelativeLayout>

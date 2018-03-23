@@ -17,8 +17,8 @@ public class Home extends AppCompatActivity {
         TextView tvPhone = findViewById(R.id.tvPhone);
 
         Intent intent = getIntent();
-        tvName.setText(intent.getStringExtra("key_name"));
-        tvEmail.setText(intent.getStringExtra("key_email"));
-        tvPhone.setText(intent.getStringExtra("key_phone"));
+        tvName.setText("Name: "+intent.getStringExtra("key_name"));
+        tvEmail.setText("Email: "+intent.getStringExtra("key_email"));
+        tvPhone.setText("Phone: "+intent.getStringExtra("key_phone"));
     }
 }

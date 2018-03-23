@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StepIt</string>
+    <string name="enter_your_name">आपका नाम दर्ज करें</string>
+    <string name="enter_your_email">अपना ईमेल दर्ज करें</string>
+    <string name="enter_phone">फ़ोन दर्ज करें</string>
+    <string name="sign_up">साइन अप करें</string>
+    <string name="enter_password">पास वर्ड दर्ज करें</string>
+</resources>
