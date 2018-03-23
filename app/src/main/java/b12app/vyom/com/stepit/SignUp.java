@@ -1,6 +1,8 @@
 package b12app.vyom.com.stepit;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,9 +42,12 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
         Spinner spinner = findViewById(R.id.spinCountry);
         spinner.setOnItemSelectedListener(this);
 
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,arrays); //adapter
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_format,R.id.spinner_box,arrays); //adapter
         spinner.setAdapter(arrayAdapter); //plug
+
+
+        Button cancel = findViewById(R.id.cancel);
+
 
         CheckBox cbMale = findViewById(R.id.maleC);
         CheckBox cbFemale = findViewById(R.id.femaleC);
@@ -102,5 +107,25 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
 
         Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void cancelClick(View view) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(SignUp.this);
+        alert.setTitle(" Cancel Alert");
+        alert.setMessage("Are you sure, you want to cancel ");
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alert.show();
     }
 }
