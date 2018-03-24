@@ -1,16 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
-    <style name="backgroundTheme">
-        <item name="android:background">@drawable/grad_bg_signup</item>
-
+    <style name="Background">
+        <item name="android:textColor">@color/alert</item>
+        <item name="android:drawable">@drawable/grad_bg_signup</item>
+        <item name="android:button">@color/colorPrimary</item>
     </style>
 
 </resources>

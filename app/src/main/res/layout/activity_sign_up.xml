@@ -5,25 +5,25 @@
     android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/backgroundTheme"
+
     tools:context="b12app.vyom.com.stepit.SignUp">
 
 
     <EditText
         android:id="@+id/etName"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="112dp"
+        android:layout_below="@+id/tools"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="94dp"
         android:ems="10"
         android:hint="@string/enter_your_name"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/etName"
         android:layout_below="@+id/etName"
@@ -34,7 +34,7 @@
 
     <EditText
         android:id="@+id/etPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/etEmail"
         android:layout_below="@+id/etPassword"
@@ -46,13 +46,13 @@
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
         android:layout_alignStart="@+id/maleC"
         android:layout_below="@+id/maleC"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="13dp"
         android:background="@color/colorPrimary"
-        android:drawableLeft="@drawable/sign_up"
+        android:drawableStart="@drawable/sign_up"
         android:onClick="sendHome"
         android:paddingEnd="7dp"
         android:paddingStart="7dp"
@@ -63,17 +63,17 @@
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/etName"
-        android:layout_marginTop="47dp"
-        android:text="@string/sign_up"
-        android:textStyle="bold"
+        android:layout_below="@+id/tools"
+        android:layout_marginTop="32dp"
+        android:text="Step It"
         android:textColor="@color/colorPrimary"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/etEmail"
         android:layout_below="@+id/etEmail"
@@ -85,7 +85,7 @@
 
     <Spinner
         android:id="@+id/spinCountry"
-        android:layout_width="match_parent"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/etPhone"
         android:layout_below="@+id/etPhone"
@@ -111,16 +111,51 @@
 
     <Button
         android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/femaleC"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+
+        android:layout_alignEnd="@+id/spinCountry"
         android:layout_alignTop="@+id/btnSignUp"
         android:background="#f53734"
+        android:drawableStart="@drawable/cancel"
         android:onClick="cancelClick"
-        android:text="Cancel"
         android:paddingEnd="7dp"
         android:paddingStart="7dp"
-        android:drawableLeft="@drawable/cancel"
+        android:text="Cancel"
         android:textColor="#FFFFFF" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btnSignin"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBaseline="@+id/cancel"-->
+        <!--android:layout_alignBottom="@+id/cancel"-->
+        <!--android:layout_marginStart="11dp"-->
+        <!--android:layout_toEndOf="@+id/etPhone"-->
+        <!--android:background="#7efa7b"-->
+        <!--android:paddingEnd="7dp"-->
+        <!--android:paddingStart="7dp"-->
+        <!--android:text="Sign In"-->
+        <!--android:textColor="#000000" />-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="3dp"
+        tools:ignore="MissingConstraints" >
+        <Button
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@drawable/login"
+            android:text="Log In"
+            android:id="@+id/btnlogin"
+            android:textColor="#FFFFFF"
+            android:paddingStart="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
 
 </RelativeLayout>

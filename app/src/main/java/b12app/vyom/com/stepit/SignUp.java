@@ -37,6 +37,15 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
         String emailS = email.getText().toString();
         Button signup = findViewById(R.id.btnSignUp);
 
+        Button signin = findViewById(R.id.btnlogin);
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signin  = new Intent(SignUp.this,Login.class);
+                startActivity(signin);
+            }
+        });
+
         EditText pass = findViewById(R.id.etPassword);
 
         Spinner spinner = findViewById(R.id.spinCountry);
