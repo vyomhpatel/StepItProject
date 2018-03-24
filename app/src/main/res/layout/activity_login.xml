@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="136dp"
-        android:text="Step It"
+        android:text=" Step It"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="30sp"
@@ -67,13 +67,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/logo_toolbar"/>
         <Button
             android:id="@+id/btnSignup"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:text="Sign Up"
-            android:layout_marginLeft="300dp"
+            android:layout_marginLeft="285dp"
             android:drawableLeft="@drawable/sign_up"
             android:background="@color/colorPrimary"
             android:textColor="#FFFFFF"/>
