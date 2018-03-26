@@ -15,10 +15,12 @@ public class Home extends AppCompatActivity {
         TextView tvName = findViewById(R.id.tvName);
         TextView tvEmail = findViewById(R.id.tvEmail);
         TextView tvPhone = findViewById(R.id.tvPhone);
+        TextView tvCountry = findViewById(R.id.tvCountry);
 
         Intent intent = getIntent();
         tvName.setText("Name: "+intent.getStringExtra("key_name"));
         tvEmail.setText("Email: "+intent.getStringExtra("key_email"));
         tvPhone.setText("Phone: "+intent.getStringExtra("key_phone"));
+        tvCountry.setText("Country: "+intent.getStringExtra("key_country"));
     }
 }

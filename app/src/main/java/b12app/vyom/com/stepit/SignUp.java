@@ -83,7 +83,7 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
             send.putExtra("key_name", nameS);
             send.putExtra("key_email", emailS);
             send.putExtra("key_phone", phoneS);
-
+            send.putExtra("key_country",spnItem);
             startActivity(send);
 
     }
@@ -103,6 +103,7 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
         Spinner spinner = findViewById(R.id.spinCountry);
         spnItem = spinner.getSelectedItem().toString();
         Toast.makeText(this,"selected item is "+spnItem,Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
