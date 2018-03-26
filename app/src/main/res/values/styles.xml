@@ -13,5 +13,9 @@
         <item name="android:drawable">@drawable/grad_bg_signup</item>
         <item name="android:button">@color/colorPrimary</item>
     </style>
+    <style name="button">
+        <item name="android:drawable">@drawable/button_design</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
 
 </resources>

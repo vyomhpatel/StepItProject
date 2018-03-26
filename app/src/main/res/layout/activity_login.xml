@@ -46,12 +46,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="cursive"
         android:text=" Step It"
+
         android:textColor="@color/colorPrimary"
+        android:textSize="55sp"
         android:textStyle="bold"
-        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
