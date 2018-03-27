@@ -16,11 +16,15 @@ public class Home extends AppCompatActivity {
         TextView tvEmail = findViewById(R.id.tvEmail);
         TextView tvPhone = findViewById(R.id.tvPhone);
         TextView tvCountry = findViewById(R.id.tvCountry);
+        TextView tvGender = findViewById(R.id.tvGender);
+        TextView tvDate = findViewById(R.id.tvDate);
 
         Intent intent = getIntent();
         tvName.setText("Name: "+intent.getStringExtra("key_name"));
         tvEmail.setText("Email: "+intent.getStringExtra("key_email"));
         tvPhone.setText("Phone: "+intent.getStringExtra("key_phone"));
         tvCountry.setText("Country: "+intent.getStringExtra("key_country"));
+        tvGender.setText("Gender: "+intent.getStringExtra("key_gender"));
+        tvDate.setText("Birth Date: "+intent.getStringExtra("key_date"));
     }
 }

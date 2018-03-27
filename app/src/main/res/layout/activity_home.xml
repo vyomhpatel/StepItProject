@@ -58,4 +58,23 @@
         android:textSize="20sp"
         android:layout_marginTop="18dp" />
 
+    <TextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvCountry"
+        android:layout_below="@+id/tvCountry"
+        android:textSize="20sp"
+        android:layout_marginTop="18dp"
+        android:layout_centerVertical="true" />
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvCountry"
+        android:layout_below="@+id/tvGender"
+        android:textSize="20sp"
+        android:layout_marginTop="18dp"
+        android:layout_centerVertical="true" />
+
 </RelativeLayout>

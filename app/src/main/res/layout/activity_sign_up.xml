@@ -48,8 +48,8 @@
         android:id="@+id/btnSignUp"
         android:layout_width="110dp"
         android:layout_height="35dp"
-        android:layout_alignStart="@+id/maleC"
-        android:layout_below="@+id/maleC"
+        android:layout_alignStart="@+id/radioGroup"
+        android:layout_below="@+id/radioGroup"
         android:layout_marginTop="13dp"
         android:background="@color/colorPrimary"
         android:drawableStart="@drawable/sign_up"
@@ -93,39 +93,6 @@
         android:layout_below="@+id/etPhone"
         android:layout_marginTop="13dp" />
 
-    <CheckBox
-        android:id="@+id/maleC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/spinCountry"
-        android:layout_below="@+id/spinCountry"
-        android:layout_marginTop="15dp"
-        android:text="Male" />
-
-    <CheckBox
-        android:id="@+id/femaleC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSignUp"
-        android:layout_alignEnd="@+id/etPhone"
-        android:layout_marginEnd="38dp"
-        android:text="Female" />
-
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="110dp"
-        android:layout_height="35dp"
-
-        android:layout_alignEnd="@+id/spinCountry"
-        android:layout_alignTop="@+id/btnSignUp"
-        android:background="#f53734"
-        android:drawableStart="@drawable/cancel"
-        android:onClick="cancelClick"
-        android:paddingEnd="7dp"
-        android:paddingStart="7dp"
-        android:text="Cancel"
-        android:textColor="#FFFFFF" />
-
     <!--<Button-->
         <!--android:id="@+id/btnSignin"-->
         <!--android:layout_width="wrap_content"-->
@@ -143,26 +110,66 @@
         android:id="@+id/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp"
-        tools:ignore="MissingConstraints" >
+        tools:layout_editor_absoluteY="3dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/logo_toolbar"/>
+            android:drawableLeft="@drawable/logo_toolbar" />
+
         <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="285dp"
             android:background="@color/colorPrimary"
             android:drawableLeft="@drawable/login"
-            android:text="Log In"
-            android:layout_marginLeft="285dp"
-            android:id="@+id/btnlogin"
-            android:textColor="#FFFFFF"
 
-            android:layout_width="wrap_content"
-            android:layout_height="35dp" />
+            android:text="Log In"
+            android:textColor="#FFFFFF" />
     </android.support.v7.widget.Toolbar>
+
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/spinCountry"
+        android:layout_below="@+id/spinCountry">
+        <RadioButton
+            android:id="@+id/rMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/rFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnSignUp"
+            android:layout_toEndOf="@+id/rMale"
+            android:text="Female" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/spinCountry"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="18dp"
+        android:onClick="pickDate"
+        android:layout_toEndOf="@+id/btnSignUp"
+        android:background="@drawable/date" />
+
 
 </RelativeLayout>

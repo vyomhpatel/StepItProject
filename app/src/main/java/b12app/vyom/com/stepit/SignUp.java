@@ -1,5 +1,6 @@
 package b12app.vyom.com.stepit;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -12,16 +13,26 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
+public class SignUp extends AppCompatActivity implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener{
 
     private static final String TAG ="Log" ;
     String spnItem;
+    RadioGroup radioGroup;
+    Button btnDate;
+    Calendar myCalendar;
+    RadioButton radio;
+    private int mYear, mMonth, mDay;
 
     String[] arrays = {"India","United States","United Kingdom","China"};
     @Override
@@ -51,18 +62,46 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
         Spinner spinner = findViewById(R.id.spinCountry);
         spinner.setOnItemSelectedListener(this);
 
+        btnDate = findViewById(R.id.btnDate);
+        myCalendar   = Calendar.getInstance();
+
+        final DatePickerDialog.OnDateSetListener dpd = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                updateLabel();
+            }
+        };
+
+
+        btnDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                new DatePickerDialog(SignUp.this,dpd,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_format,R.id.spinner_box,arrays); //adapter
         spinner.setAdapter(arrayAdapter); //plug
 
+         radioGroup = findViewById(R.id.radioGroup);
 
-        Button cancel = findViewById(R.id.cancel);
 
 
-        CheckBox cbMale = findViewById(R.id.maleC);
-        CheckBox cbFemale = findViewById(R.id.femaleC);
 
-        cbFemale.setOnCheckedChangeListener(this);
-        cbMale.setOnCheckedChangeListener(this);
+
+
+
+
+
     }
 
 
@@ -76,7 +115,19 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
         EditText phone = findViewById(R.id.etPhone);
         String phoneS = phone.getText().toString();
 
-            Log.e(TAG, "sendHome: ");
+        int id = radioGroup.getCheckedRadioButtonId();
+        radio = findViewById(id);
+
+
+
+
+        String myFormat = "MM dd, yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        String date = sdf.format(myCalendar.getTime());
+        Log.i(TAG, "sendHome: "+date);
+
+
+        Log.e(TAG, "sendHome: ");
             Intent send = new Intent(this, Home.class);
 
 
@@ -84,6 +135,13 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
             send.putExtra("key_email", emailS);
             send.putExtra("key_phone", phoneS);
             send.putExtra("key_country",spnItem);
+
+            if(radio!=null) {
+
+                String radioText= radio.getText().toString();
+                send.putExtra("key_gender", radioText);
+            }
+            send.putExtra("key_date",date);
             startActivity(send);
 
     }
@@ -112,30 +170,15 @@ public class SignUp extends AppCompatActivity implements View.OnFocusChangeListe
 
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-        Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
+    public void pickDate(View view) {
 
-    }
+        final Calendar calendar = Calendar.getInstance();
+        mYear = calendar.get(Calendar.YEAR);
+        mMonth = calendar.get(Calendar.MONTH);
+        mDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-    public void cancelClick(View view) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(SignUp.this);
-        alert.setTitle(" Cancel Alert");
-        alert.setMessage("Are you sure, you want to cancel ");
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-            }
-        });
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        alert.show();
     }
 }
